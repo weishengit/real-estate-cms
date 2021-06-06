@@ -1,527 +1,459 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- ======= Hero Section ======= -->
-<section class="hero">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-12">
-                <a class="hero-brand" href="index.html" title="Home">
-                    <img alt="Vista Logo" width="250" height="100" src="{{ asset('assets/img/logo.png') }}" /></a>
+<!-- ======= Header/Navbar ======= -->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+            aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <a class="navbar-brand text-brand" href="index.html">Vista<span class="color-b">Condo</span></a>
+        <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
+            data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
+            <span class="fa fa-search" aria-hidden="true"></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="property-grid.html">Property</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Pages
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="property-single.html">Property Single</a>
+                        <a class="dropdown-item" href="blog-single.html">Blog Single</a>
+                        <a class="dropdown-item" href="agents-grid.html">Agents Grid</a>
+                        <a class="dropdown-item" href="agent-single.html">Agent Single</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav><!-- End Header/Navbar -->
+
+<!-- ======= Intro Section ======= -->
+<div class="intro intro-carousel">
+    <div id="carousel" class="owl-carousel owl-theme">
+
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-1.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <p class="intro-title-top">Doral, Florida
+                                        <br> 78345
+                                    </p>
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">204 </span> Mount
+                                        <br> Olive Road Two
+                                    </h1>
+                                    <p class="intro-subtitle intro-price">
+                                        <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-12">
-            <h1>Find the right property for you.</h1>
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-2.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <p class="intro-title-top">Doral, Florida
+                                        <br> 78345
+                                    </p>
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">204 </span> Rino
+                                        <br> Venda Road Five
+                                    </h1>
+                                    <p class="intro-subtitle intro-price">
+                                        <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <p class="tagline">
-                Vista Residences currently ranks among the top listed property firms in the country.
-            </p>
-            <a class="btn btn-full scrollto" href="#about">Get Started Now</a>
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/slide-3.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <p class="intro-title-top">Doral, Florida
+                                        <br> 78345
+                                    </p>
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">204 </span> Alira
+                                        <br> Roan Road One
+                                    </h1>
+                                    <p class="intro-subtitle intro-price">
+                                        <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- End Intro Section -->
+
+<main id="main">
+
+    <!-- ======= Latest Properties Section ======= -->
+    <section class="section-property section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Latest Properties</h2>
+                        </div>
+                        <div class="title-link">
+                            <a href="property-grid.html">All Property
+                                <span class="ion-ios-arrow-forward"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="property-carousel" class="owl-carousel owl-theme">
+                <div class="carousel-item-b">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                            <img src="assets/img/property-6.jpg" alt="" class="img-a img-fluid">
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-overlay-a-content">
+                                <div class="card-header-a">
+                                    <h2 class="card-title-a">
+                                        <a href="property-single.html">206 Mount
+                                            <br /> Olive Road Two</a>
+                                    </h2>
+                                </div>
+                                <div class="card-body-a">
+                                    <div class="price-box d-flex">
+                                        <span class="price-a">rent | $ 12.000</span>
+                                    </div>
+                                    <a href="#" class="link-a">Click here to view
+                                        <span class="ion-ios-arrow-forward"></span>
+                                    </a>
+                                </div>
+                                <div class="card-footer-a">
+                                    <ul class="card-info d-flex justify-content-around">
+                                        <li>
+                                            <h4 class="card-info-title">Area</h4>
+                                            <span>340m
+                                                <sup>2</sup>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Beds</h4>
+                                            <span>2</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Baths</h4>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Garages</h4>
+                                            <span>1</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item-b">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                            <img src="assets/img/property-3.jpg" alt="" class="img-a img-fluid">
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-overlay-a-content">
+                                <div class="card-header-a">
+                                    <h2 class="card-title-a">
+                                        <a href="property-single.html">157 West
+                                            <br /> Central Park</a>
+                                    </h2>
+                                </div>
+                                <div class="card-body-a">
+                                    <div class="price-box d-flex">
+                                        <span class="price-a">rent | $ 12.000</span>
+                                    </div>
+                                    <a href="property-single.html" class="link-a">Click here to view
+                                        <span class="ion-ios-arrow-forward"></span>
+                                    </a>
+                                </div>
+                                <div class="card-footer-a">
+                                    <ul class="card-info d-flex justify-content-around">
+                                        <li>
+                                            <h4 class="card-info-title">Area</h4>
+                                            <span>340m
+                                                <sup>2</sup>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Beds</h4>
+                                            <span>2</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Baths</h4>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Garages</h4>
+                                            <span>1</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item-b">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                            <img src="assets/img/property-7.jpg" alt="" class="img-a img-fluid">
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-overlay-a-content">
+                                <div class="card-header-a">
+                                    <h2 class="card-title-a">
+                                        <a href="property-single.html">245 Azabu
+                                            <br /> Nishi Park let</a>
+                                    </h2>
+                                </div>
+                                <div class="card-body-a">
+                                    <div class="price-box d-flex">
+                                        <span class="price-a">rent | $ 12.000</span>
+                                    </div>
+                                    <a href="property-single.html" class="link-a">Click here to view
+                                        <span class="ion-ios-arrow-forward"></span>
+                                    </a>
+                                </div>
+                                <div class="card-footer-a">
+                                    <ul class="card-info d-flex justify-content-around">
+                                        <li>
+                                            <h4 class="card-info-title">Area</h4>
+                                            <span>340m
+                                                <sup>2</sup>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Beds</h4>
+                                            <span>2</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Baths</h4>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Garages</h4>
+                                            <span>1</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item-b">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                            <img src="assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-overlay-a-content">
+                                <div class="card-header-a">
+                                    <h2 class="card-title-a">
+                                        <a href="property-single.html">204 Montal
+                                            <br /> South Bela Two</a>
+                                    </h2>
+                                </div>
+                                <div class="card-body-a">
+                                    <div class="price-box d-flex">
+                                        <span class="price-a">rent | $ 12.000</span>
+                                    </div>
+                                    <a href="property-single.html" class="link-a">Click here to view
+                                        <span class="ion-ios-arrow-forward"></span>
+                                    </a>
+                                </div>
+                                <div class="card-footer-a">
+                                    <ul class="card-info d-flex justify-content-around">
+                                        <li>
+                                            <h4 class="card-info-title">Area</h4>
+                                            <span>340m
+                                                <sup>2</sup>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Beds</h4>
+                                            <span>2</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Baths</h4>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Garages</h4>
+                                            <span>1</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Latest Properties Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<section class="section-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="widget-a">
+                    <div class="w-header-a">
+                        <h3 class="w-title-a text-brand">VistaCondo</h3>
+                    </div>
+                    <div class="w-body-a">
+                        <p class="w-text-a color-text-a">
+                            Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo
+                            consequat duis
+                            sed aute irure.
+                        </p>
+                    </div>
+                    <div class="w-footer-a">
+                        <ul class="list-unstyled">
+                            <li class="color-a">
+                                <span class="color-text-a">Phone .</span> contact@example.com
+                            </li>
+                            <li class="color-a">
+                                <span class="color-text-a">Email .</span> +54 356 945234
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 section-md-t3">
+                <div class="widget-a">
+                    <div class="w-header-a">
+                        <h3 class="w-title-a text-brand">The Company</h3>
+                    </div>
+                    <div class="w-body-a">
+                        <div class="w-body-a">
+                            <ul class="list-unstyled">
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<!-- End Hero -->
-
-{{-- Nav --}}
-@include('layouts.nav')
-{{-- End Nav --}}
-
-<main id="main">
-    <!-- ======= About Section ======= -->
-    <section class="about" id="about">
-        <div class="container text-center">
-            <h2>About Bell Theme</h2>
-
-            <p>
-                Voluptua scripserit per ad, laudem viderer sit ex. Ex alia corrumpit
-                voluptatibus usu, sed unum convenire id. Ut cum nisl moderatius, per
-                nihil dicant commodo an. Eum tacimates erroribus ad. Atqui feugiat
-                euripidis ea pri, sed veniam tacimates ex. Menandri temporibus an
-                duo.
-            </p>
-
-            <div class="row stats-row">
-                <div class="stats-col text-center col-md-3 col-sm-6">
-                    <div class="circle">
-                        <span class="stats-no" data-toggle="counter-up">232</span>
-                        Satisfied Customers
-                    </div>
-                </div>
-
-                <div class="stats-col text-center col-md-3 col-sm-6">
-                    <div class="circle">
-                        <span class="stats-no" data-toggle="counter-up">79</span>
-                        Released Projects
-                    </div>
-                </div>
-
-                <div class="stats-col text-center col-md-3 col-sm-6">
-                    <div class="circle">
-                        <span class="stats-no" data-toggle="counter-up">1,463</span>
-                        Hours Of Support
-                    </div>
-                </div>
-
-                <div class="stats-col text-center col-md-3 col-sm-6">
-                    <div class="circle">
-                        <span class="stats-no" data-toggle="counter-up">15</span> Hard
-                        Workers
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End About Section -->
-
-    <!-- ======= Welcome Section ======= -->
-    <section class="welcome text-center">
-        <h2>Welcome to a perfect theme</h2>
-        <p>
-            This is the most powerful theme with thousands of options that you
-            have never seen before.
-        </p>
-        <img alt="Bell - A perfect theme" class="gadgets-img hidden-md-down" src="assets/img/gadgets.png" />
-    </section>
-    <!-- End Welcome Section -->
-
-    <!-- ======= Features Section ======= -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="text-center">Features</h2>
-
-            <div class="row">
-                <div class="feature-col col-lg-4 col-xs-12">
-                    <div class="card card-block text-center">
-                        <div>
-                            <div class="feature-icon">
-                                <span class="fa fa-rocket"></span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3>Custom Design</h3>
-
-                            <p>
-                                Eque feugiat contentiones ei has. Id summo mundi explicari
-                                his, nec in maiorum scriptorem.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="feature-col col-lg-4 col-xs-12">
-                    <div class="card card-block text-center">
-                        <div>
-                            <div class="feature-icon">
-                                <span class="fa fa-envelope"></span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3>Responsive Layout</h3>
-
-                            <p>
-                                Eque feugiat contentiones ei has. Id summo mundi explicari
-                                his, nec in maiorum scriptorem.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="feature-col col-lg-4 col-xs-12">
-                    <div class="card card-block text-center">
-                        <div>
-                            <div class="feature-icon">
-                                <span class="fa fa-bell"></span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3>Innovative Ideas</h3>
-
-                            <p>
-                                Eque feugiat contentiones ei has. Id summo mundi explicari
-                                his, nec in maiorum scriptorem.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="feature-col col-lg-4 col-xs-12">
-                    <div class="card card-block text-center">
-                        <div>
-                            <div class="feature-icon">
-                                <span class="fa fa-database"></span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3>Good Documentation</h3>
-
-                            <p>
-                                Eque feugiat contentiones ei has. Id summo mundi explicari
-                                his, nec in maiorum scriptorem.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="feature-col col-lg-4 col-xs-12">
-                    <div class="card card-block text-center">
-                        <div>
-                            <div class="feature-icon">
-                                <span class="fa fa-cutlery"></span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3>Excellent Features</h3>
-
-                            <p>
-                                Eque feugiat contentiones ei has. Id summo mundi explicari
-                                his, nec in maiorum scriptorem.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="feature-col col-lg-4 col-xs-12">
-                    <div class="card card-block text-center">
-                        <div>
-                            <div class="feature-icon">
-                                <span class="fa fa-dashboard"></span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3>Retina Ready</h3>
-                            <p>
-                                Eque feugiat contentiones ei has. Id summo mundi explicari
-                                his, nec in maiorum scriptorem.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Features Section -->
-
-    <!-- ======= Call to Action Section ======= -->
-    <section class="cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 col-sm-12 text-lg-left text-center">
-                    <h2>Call to Action Section</h2>
-
-                    <p>
-                        Lorem ipsum dolor sit amet, nec ad nisl mandamus imperdiet, ut
-                        corpora cotidieque cum. Et brute iracundia his, est eu idque
-                        dictas gubergren
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-sm-12 text-lg-right text-center">
-                    <a class="btn btn-ghost" href="#">Buy This Theme</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Call to Action Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section class="portfolio" id="portfolio">
-        <div class="container text-center">
-            <h2>Portfolio</h2>
-
-            <p>
-                Voluptua scripserit per ad, laudem viderer sit ex. Ex alia corrumpit
-                voluptatibus usu, sed unum convenire id. Ut cum nisl moderatius, Per
-                nihil dicant commodo an.
-            </p>
-        </div>
-
-        <div class="portfolio-grid">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card card-block">
-                        <a href="assets/img/porf-1.jpg" class="venobox" data-gall="portfolioGallery"><img alt=""
-                                src="assets/img/porf-1.jpg" />
-                            <div class="portfolio-over">
-                                <div>
-                                    <h3 class="card-title">The Dude Rockin'</h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, eu sed suas eruditi
-                                        honestatis.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card card-block">
-                        <a href="assets/img/porf-2.jpg" class="venobox" data-gall="portfolioGallery"><img alt=""
-                                src="assets/img/porf-2.jpg" />
-                            <div class="portfolio-over">
-                                <div>
-                                    <h3 class="card-title">The Dude Rockin'</h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, eu sed suas eruditi
-                                        honestatis.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card card-block">
-                        <a href="assets/img/porf-3.jpg" class="venobox" data-gall="portfolioGallery"><img alt=""
-                                src="assets/img/porf-3.jpg" />
-                            <div class="portfolio-over">
-                                <div>
-                                    <h3 class="card-title">The Dude Rockin'</h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, eu sed suas eruditi
-                                        honestatis.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card card-block">
-                        <a href="assets/img/porf-4.jpg" class="venobox" data-gall="portfolioGallery"><img alt=""
-                                src="assets/img/porf-4.jpg" />
-                            <div class="portfolio-over">
-                                <div>
-                                    <h3 class="card-title">The Dude Rockin'</h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, eu sed suas eruditi
-                                        honestatis.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card card-block">
-                        <a href="assets/img/porf-5.jpg" class="venobox" data-gall="portfolioGallery"><img alt=""
-                                src="assets/img/porf-5.jpg" />
-                            <div class="portfolio-over">
-                                <div>
-                                    <h3 class="card-title">The Dude Rockin'</h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, eu sed suas eruditi
-                                        honestatis.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card card-block">
-                        <a href="assets/img/porf-6.jpg" class="venobox" data-gall="portfolioGallery"><img alt=""
-                                src="assets/img/porf-6.jpg" />
-                            <div class="portfolio-over">
-                                <div>
-                                    <h3 class="card-title">The Dude Rockin'</h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, eu sed suas eruditi
-                                        honestatis.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card card-block">
-                        <a href="assets/img/porf-7.jpg" class="venobox" data-gall="portfolioGallery"><img alt=""
-                                src="assets/img/porf-7.jpg" />
-                            <div class="portfolio-over">
-                                <div>
-                                    <h3 class="card-title">The Dude Rockin'</h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, eu sed suas eruditi
-                                        honestatis.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card card-block">
-                        <a href="assets/img/porf-8.jpg" class="venobox" data-gall="portfolioGallery"><img alt=""
-                                src="assets/img/porf-8.jpg" />
-                            <div class="portfolio-over">
-                                <div>
-                                    <h3 class="card-title">The Dude Rockin'</h3>
-
-                                    <p class="card-text">
-                                        Lorem ipsum dolor sit amet, eu sed suas eruditi
-                                        honestatis.
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Portfolio Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2 class="section-title">Contact Us</h2>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-4">
-                    <div class="info">
-                        <div>
-                            <i class="fa fa-map-marker"></i>
-                            <p>A108 Adam Street<br />New York, NY 535022</p>
-                        </div>
-
-                        <div>
-                            <i class="fa fa-envelope"></i>
-                            <p>info@example.com</p>
-                        </div>
-
-                        <div>
-                            <i class="fa fa-phone"></i>
-                            <p>+1 5589 55488 55s</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-8">
-                    <div class="form">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                <div class="validate"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                                <div class="validate"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" data-rule="minlen:4"
-                                    data-msg="Please enter at least 8 chars of subject" />
-                                <div class="validate"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required"
-                                    data-msg="Please write something for us" placeholder="Message"></textarea>
-                                <div class="validate"></div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">
-                                    Your message has been sent. Thank you!
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Contact Section -->
-</main>
-<!-- End #main -->
-
-<!-- ======= Footer ======= -->
-<footer class="site-footer">
-    <div class="bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-xs-12 text-lg-left text-center">
-                    <p class="copyright-text">
-                        &copy; Copyright <strong>Bell</strong>. All Rights Reserved
-                    </p>
-                    <div class="credits">
-                        <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bell
-            -->
-                        Designed by
-                        <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-xs-12 text-lg-right text-center">
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="nav-footer">
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <a href="index.html">Home</a>
+                            <a href="#">Home</a>
                         </li>
-
                         <li class="list-inline-item">
-                            <a href="#about">About Us</a>
+                            <a href="#">About</a>
                         </li>
-
                         <li class="list-inline-item">
-                            <a href="#features">Features</a>
+                            <a href="#">Property</a>
                         </li>
-
                         <li class="list-inline-item">
-                            <a href="#portfolio">Portfolio</a>
-                        </li>
-
-                        <li class="list-inline-item">
-                            <a href="#team">Team</a>
-                        </li>
-
-                        <li class="list-inline-item">
-                            <a href="#contact">Contact</a>
+                            <a href="#">Contact</a>
                         </li>
                     </ul>
+                </nav>
+                <div class="socials-a">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright-footer">
+                    <p class="copyright color-text-a">
+                        &copy; Copyright
+                        <span class="color-a">VistaCondo</span> All Rights Reserved.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-</footer>
-<!-- End Footer -->
+</footer><!-- End  Footer -->
 
-<a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<div id="preloader"></div>
 @endsection

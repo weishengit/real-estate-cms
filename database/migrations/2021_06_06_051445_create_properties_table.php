@@ -15,7 +15,15 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('area_id');
+            $table->string('title');
+            $table->string('slug');
+            $table->string('cover_image');
+            $table->string('address');
+            $table->string('introduction');
+            $table->longText('description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

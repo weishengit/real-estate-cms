@@ -31,13 +31,15 @@
     <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     />
 
     <!-- Vendor CSS Files -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('vendor/venobox/venobox.css') }}" rel="stylesheet" />
-    <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}"rel="stylesheet"
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     />
 
     <!-- Template Main CSS File -->
@@ -53,16 +55,8 @@
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-    <script src="{{ asset('vendor/counterup/counterup.min.js') }}"></script>
-    <script src="{{ asset('vendor/tether/js/tether.min.js') }}"></script>
-    <script src="{{ asset('vendor/jquery-sticky/jquery.sticky.js') }}"></script>
-    <script src="{{ asset('vendor/venobox/venobox.min.js') }}"></script>
-    <script src="{{ asset('vendor/lockfixed/jquery.lockfixed.min.js') }}"></script>
-    <script src="{{ asset('vendor/waypoints/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('vendor/superfish/superfish.min.js') }}"></script>
-    <script src="{{ asset('vendor/hoverIntent/hoverIntent.js') }}"></script>
-
+    <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('vendor/scrollreveal/scrollreveal.min.js') }}"></script>
     <!-- Template Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
