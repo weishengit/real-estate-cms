@@ -56,6 +56,12 @@
 
         {{-- CONTENT --}}
         <div class="c-body">
+            {{-- Flash --}}
+            @if (session()->has('message'))
+                <div class="alert alert-info" role="alert">
+                    {{ session()->get('message') }}
+                </div>
+            @endif
             <main class="c-main">
                 <div class="container-fluid">
                     <div class="fade-in">
@@ -71,6 +77,7 @@
 
     </div>
     {{-- SCRIPTS --}}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js" integrity="sha512-yUNtg0k40IvRQNR20bJ4oH6QeQ/mgs9Lsa6V+3qxTj58u2r+JiAYOhOW0o+ijuMmqCtCEg7LZRA+T4t84/ayVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>

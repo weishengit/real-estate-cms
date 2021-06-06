@@ -9,8 +9,8 @@
         </div>
 
         <a class="text-light" href="index.html">
-            <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-home"></use>
+            <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CMS Logo">
+                <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-home') }}"></use>
             </svg>
         </a>
     </div>
@@ -21,7 +21,7 @@
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="index.html">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-devices"></use>
+                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-devices') }}"></use>
                 </svg>
                 Dashboard
             </a>
@@ -32,7 +32,7 @@
             <a
                 class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-building"></use>
+                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-building') }}"></use>
                 </svg>
                 View Properties
             </a>
@@ -40,7 +40,7 @@
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="base/breadcrumb.html">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-house"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-house') }}"></use>
                         </svg>
                         <span class="c-sidebar-nav-icon"></span> All Properties
                     </a>
@@ -48,7 +48,7 @@
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="base/cards.html">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-check-alt"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-check-alt') }}"></use>
                         </svg>
                         <span class="c-sidebar-nav-icon"></span> Listed Properties
                     </a>
@@ -56,16 +56,16 @@
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="base/cards.html">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-x"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-x') }}"></use>
                         </svg>
                         <span class="c-sidebar-nav-icon"></span> Unlisted Properties
                     </a>
                 </li>
             </ul>
             <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="charts.html">
+                <a class="c-sidebar-nav-link" href="{{ route('admin.properties.create') }}">
                     <svg class="c-sidebar-nav-icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-plus"></use>
+                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-plus') }}"></use>
                     </svg> Add Property
                 </a>
             </li>
@@ -76,7 +76,7 @@
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
             <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
+                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-settings') }}"></use>
                 </svg>
                 Settings
             </a>
@@ -84,7 +84,7 @@
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="login.html" target="_top">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-closed"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-envelope-closed') }}"></use>
                         </svg>
                         Mail Settings
                     </a>
@@ -92,7 +92,7 @@
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="register.html" target="_top">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-address-book"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-address-book') }}"></use>
                         </svg>
                         Contact Settings
                     </a>
@@ -100,7 +100,7 @@
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="404.html" target="_top">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-people"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-people') }}"></use>
                         </svg>
                         Social Settings
                     </a>
@@ -108,7 +108,7 @@
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="500.html" target="_top">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-bug') }}"></use>
                         </svg>
                         Error 500
                     </a>

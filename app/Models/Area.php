@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Area extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
 }

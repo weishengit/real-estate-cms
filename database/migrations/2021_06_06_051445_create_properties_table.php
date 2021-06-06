@@ -22,6 +22,9 @@ class CreatePropertiesTable extends Migration
             $table->string('address');
             $table->string('introduction');
             $table->longText('description');
+            $table->string('type');
+            $table->string('cost');
+            $table->boolean('listed');
             $table->timestamps();
             $table->softDeletes();
         });
