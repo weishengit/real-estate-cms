@@ -7,13 +7,13 @@
     <section class="intro-single">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-lg-8">
+                <div class="col-md-12 col-lg-6">
                     <div class="title-single-box">
                         <h1 class="title-single">{{ $property->title }}</h1>
                         <span class="color-text-a">{{ $property->address }}</span>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-4">
+                <div class="col-md-12 col-lg-6">
                     <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
@@ -23,7 +23,7 @@
                                 <a href="property-grid.html">Properties</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ $property->id }}
+                                {{ $property->title }}
                             </li>
                         </ol>
                     </nav>
@@ -38,9 +38,6 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
-                        <div class="carousel-item-b">
-                            <img src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
-                        </div>
                         <div class="carousel-item-b">
                             <img src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
                         </div>
@@ -70,7 +67,7 @@
                                     </div>
                                 </div>
                                 <div class="summary-list">
-                                    <ul class="list">
+                                    <ul class="list text-right">
                                         <li class="d-flex justify-content-between">
                                             <strong>Property Name:</strong>
                                             <span>{{ $property->title }}</span>
@@ -120,10 +117,10 @@
                             </div>
                             <div class="property-description">
                                 <p class="description color-text-a">
-                                    {{ $property->introduction }}
+                                    <strong>{{ $property->introduction }}</strong>
                                 </p>
                                 <p class="description color-text-a no-margin">
-                                    {{ $property->description }}
+                                    {!! $property->description !!}
                                 </p>
                             </div>
                             {{-- Description End --}}
@@ -171,7 +168,7 @@
                         </div>
                         <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes+Square!5e0!3m2!1ses-419!2sve!4v1510329142834"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30890.05345698738!2d121.0209956286785!3d14.584444381011254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c835c77b9b79%3A0xdc4947c8b9d237f8!2sMandaluyong%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1623045956809!5m2!1sen!2sph"
                                 width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
                     </div>

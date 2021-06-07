@@ -49,10 +49,10 @@
                 {{-- Properties --}}
                 @if (isset($properties))
                     @foreach ($properties as $property)
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="{{ asset('assets/img/properties/' .  $property->cover_image ) }}" alt="" class="{{ $property->slug }} image">
+                                <img src="{{ asset('assets/img/properties/' .  $property->cover_image ) }}" alt="{{ $property->slug }} image" class="img-fluid">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">

@@ -6,7 +6,7 @@
             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-menu') }}"></use>
         </svg>
     </button><a class="c-header-brand d-lg-none" href="#">
-        <svg width="118" height="46" alt="CoreUI Logo">
+        <svg width="118" height="46" alt="CMS Logo">
             <use xlink:href="{{ asset('assets/brand/coreui.svg#full') }}"></use>
         </svg></a>
     <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar"

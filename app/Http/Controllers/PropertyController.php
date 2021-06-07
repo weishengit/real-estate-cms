@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Area;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\StorePropertyValidation;
+use App\Http\Requests\UpdatePropertyValidation;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PropertyController extends Controller
@@ -15,9 +17,24 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $request->validate(['filter' => 'string']);
+        $filter = $request->input('filter');
+        $properties = null;
+        switch ($filter) {
+            case 'Listed':
+                $properties = Property::where('listed', 1)->paginate(20);
+                break;
+            case 'Unlisted':
+                $properties = Property::where('listed', 0)->paginate(20);
+                break;
+            default:
+                $properties = Property::paginate(20);
+                break;
+        }
+
+        return view('admin.properties.index', compact('properties', 'filter'));
     }
 
     /**
@@ -42,7 +59,7 @@ class PropertyController extends Controller
         $newImageName = 'cover' . '-' . $request->slug . '.' . $request->cover_image->extension();
         $request->cover_image->move(public_path('assets/img/properties/'), $newImageName);
 
-        // CREATE PRODUCT
+        // CREATE PROPERTY
         Property::create([
             'title' => $request->input('title'),
             'area_id' => $request->input('area'),
@@ -55,8 +72,8 @@ class PropertyController extends Controller
             'cover_image' => $newImageName,
         ]);
 
-        // REDIRECT TO PRODUCT INDEX
-        return redirect()->route('admin.home')->with('message', $request->title . ' has been added.');
+        // REDIRECT TO PROPERTY INDEX
+        return redirect()->route('admin.properties.index')->with('message', $request->title . ' has been added.');
     }
 
     /**
@@ -80,19 +97,40 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        //
+        $areas = Area::all();
+        return view('admin.properties.edit', compact('property', 'areas'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\UpdatePropertyValidation  $request
      * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Property $property)
+    public function update(UpdatePropertyValidation $request, Property $property)
     {
-        //
+        $cover_picture = $property->cover_image;
+
+        if ($request->hasFile('cover_image')) {
+            $cover_picture  = 'cover' . '-' . $request->slug . '.' . $request->cover_image->extension();
+            $request->cover_image->move(public_path('assets/img/properties/'), $cover_picture);
+        }
+
+        $property->update([
+            'title' => $request->input('title'),
+            'area_id' => $request->input('area'),
+            'slug' => $request->input('slug'),
+            'address' => $request->input('address'),
+            'introduction' => $request->input('introduction'),
+            'description' => $request->input('description'),
+            'type' => $request->input('type'),
+            'cost' => $request->input('cost'),
+            'cover_image' => $cover_picture,
+        ]);
+
+        // REDIRECT TO PROPERTY INDEX
+        return redirect()->route('admin.properties.index')->with('message', $request->title . ' has been updated.');
     }
 
     /**
@@ -103,6 +141,8 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        //
+        $property->delete();
+
+        return redirect()->back()->with('message', $property->title . ' has been deleted.');
     }
 }

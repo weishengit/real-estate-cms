@@ -38,7 +38,7 @@
             </a>
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="base/breadcrumb.html">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.properties.index') }}">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-house') }}"></use>
                         </svg>
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="base/cards.html">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.properties.index', ['filter' => 'Listed']) }}">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-check-alt') }}"></use>
                         </svg>
@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="base/cards.html">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.properties.index', ['filter' => 'Unlisted']) }}">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-x') }}"></use>
                         </svg>
