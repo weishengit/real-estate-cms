@@ -24,13 +24,13 @@ class PropertyController extends Controller
         $properties = null;
         switch ($filter) {
             case 'Listed':
-                $properties = Property::where('listed', 1)->paginate(20);
+                $properties = Property::where('listed', 1)->paginate(10);
                 break;
             case 'Unlisted':
-                $properties = Property::where('listed', 0)->paginate(20);
+                $properties = Property::where('listed', 0)->paginate(10);
                 break;
             default:
-                $properties = Property::paginate(20);
+                $properties = Property::paginate(10);
                 break;
         }
 
@@ -141,8 +141,21 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        $property->delete();
+        // $property->delete();
+        $property->update(['listed' => false]);
+        return redirect()->back()->with('message', $property->title . ' has been unlisted.');
+    }
 
-        return redirect()->back()->with('message', $property->title . ' has been deleted.');
+    /**
+     * Restore the specified resource from storage.
+     *
+     * @param  \App\Models\Property  $property
+     * @return \Illuminate\Http\Response
+     */
+    public function restore(Property $property)
+    {
+        // $property->delete();
+        $property->update(['listed' => true]);
+        return redirect()->back()->with('message', $property->title . ' has been listed.');
     }
 }

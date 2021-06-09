@@ -29,7 +29,7 @@ class PagesController extends Controller
 
     public function properties()
     {
-        $properties = Property::where('listed', 1)->get();
+        $properties = Property::where('listed', 1)->paginate(9);
         return view('pages.properties', compact('properties'));
     }
 

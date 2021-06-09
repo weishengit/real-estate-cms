@@ -26,7 +26,7 @@
                             @if ($property->listed)
                                 <span class="badge badge-success">Listed</span>
                             @else
-                                <span class="badge badge-success">Unlisted</span>
+                                <span class="badge badge-secondary">Unlisted</span>
                             @endif
                         </td>
                         <td>{{ $property->created_at->format('M d Y') }}</td>
@@ -35,9 +35,20 @@
                                 <a href="{{ route('admin.properties.edit', ['property' => $property]) }}">
                                     <button class="btn btn-sm btn-info" type="button">Edit</button>
                                 </a>
-                                <form action="{{ route('admin.properties.destroy', ['property' => $property]) }}">
-                                    <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure you wan\'t to delete this property?')">Delete</button>
+                                @if ($property->listed)
+                                <form action="{{ route('admin.properties.destroy', ['property' => $property]) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure you want to unlist this property?')">Unlist</button>
                                 </form>
+                                @else
+                                <form action="{{ route('admin.properties.restore', ['property' => $property]) }}" method="POST">
+                                    @csrf
+                                    @method('put')
+                                    <button class="btn btn-sm btn-success" type="submit" onclick="return confirm('Are you sure you want to relist this property?')">List</button>
+                                </form>
+                                @endif
+
                             </div>
                         </td>
                     </tr>
