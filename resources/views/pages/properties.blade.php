@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="card-body-a">
                                         <div class="price-box d-flex">
-                                            <span class="price-a">{{ $property->type }} | &#8369; {{ is_numeric($property->cost) ? number_format($property->cost, 2,) : $property->cost }}</span>
+                                            <span class="price-a">{{ $property->type }} | &#8369; {{ is_numeric($property->cost) ? number_format($property->cost, 0) : $property->cost }}</span>
                                         </div>
                                         <a href="{{ route('property', ['property' => $property->slug]) }}" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
@@ -79,15 +79,15 @@
                                             </li>
                                             <li>
                                                 <h4 class="card-info-title">Beds</h4>
-                                                <span>2</span>
+                                                <span>{{ $property->beds }}</span>
                                             </li>
                                             <li>
                                                 <h4 class="card-info-title">Baths</h4>
-                                                <span>4</span>
+                                                <span>{{ $property->baths }}</span>
                                             </li>
                                             <li>
-                                                <h4 class="card-info-title">Garages</h4>
-                                                <span>1</span>
+                                                <h4 class="card-info-title">Parking</h4>
+                                                <span>{{ $property->parking }}</span>
                                             </li>
                                         </ul>
                                     </div>

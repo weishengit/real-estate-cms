@@ -12,8 +12,9 @@ class PagesController extends Controller
     public function index()
     {
         // TODO:
-        // properties to display
-        return view('welcome');
+        $showcase = Property::where('listed', 1)->get()->random(5);
+        $latest = Property::where('listed', 1)->limit(7)->latest()->get();
+        return view('welcome', compact('showcase', 'latest'));
     }
 
     public function about()
@@ -24,6 +25,7 @@ class PagesController extends Controller
     public function contact()
     {
         // TODO: Form Submit
+
         return view('pages.contact');
     }
 

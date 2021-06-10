@@ -39,7 +39,7 @@
                 <div class="col-sm-12">
                     <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
                         <div class="carousel-item-b">
-                            <img src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
+                            <img style="object-fit: cover"; src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
                         </div>
                         <div class="carousel-item-b">
                             <img src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
@@ -53,7 +53,7 @@
                                         <span class="ion-money">&#8369;</span>
                                     </div>
                                     <div class="card-title-c align-self-center">
-                                        <h5 class="title-c">{{ $property->cost }}</h5>
+                                        <h5 class="title-c">{{ is_numeric($property->cost) ? number_format($property->cost, 0) : $property->cost }}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -77,12 +77,8 @@
                                             <span>{{ $property->address }}</span>
                                         </li>
                                         <li class="d-flex justify-content-between">
-                                            <strong>Property Type:</strong>
-                                            <span>Condo</span>
-                                        </li>
-                                        <li class="d-flex justify-content-between">
                                             <strong>Status:</strong>
-                                            <span>{{ $property->type }}</span>
+                                            <span>For {{ $property->type }}</span>
                                         </li>
                                         <li class="d-flex justify-content-between">
                                             <strong>Area:</strong>
@@ -152,24 +148,28 @@
 
                 {{-- TABS --}}
                 <div class="col-md-10 offset-md-1">
+                    {{-- Header --}}
                     <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
+                        {{-- Floor plans --}}
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-plans-tab" data-toggle="pill" href="#pills-plans" role="tab"
+                            <a class="nav-link active" id="pills-plans-tab" data-toggle="pill" href="#pills-plans" role="tab"
                                 aria-controls="pills-plans" aria-selected="false">Floor Plans</a>
                         </li>
+                        {{-- Location --}}
                         <li class="nav-item">
                             <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
                                 aria-controls="pills-map" aria-selected="false">Location</a>
                         </li>
                     </ul>
+                    {{-- Content --}}
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade" id="pills-plans" role="tabpanel" aria-labelledby="pills-plans-tab">
+                        {{-- Floor plans --}}
+                        <div class="tab-pane fade show active" id="pills-plans" role="tabpanel" aria-labelledby="pills-plans-tab">
                             <img src="{{ asset('assets/img/plan2.jpg') }}" alt="" class="img-fluid">
                         </div>
+                        {{-- Location --}}
                         <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30890.05345698738!2d121.0209956286785!3d14.584444381011254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c835c77b9b79%3A0xdc4947c8b9d237f8!2sMandaluyong%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1623045956809!5m2!1sen!2sph"
-                                width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            {!! $property->map !!}
                         </div>
                     </div>
                 </div>

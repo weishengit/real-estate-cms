@@ -22,6 +22,10 @@ class Property extends Model
         'type',
         'cost',
         'listed',
+        'beds',
+        'baths',
+        'parking',
+        'map',
     ];
 
     protected $attributes = [
@@ -31,6 +35,11 @@ class Property extends Model
     public function galleries()
     {
         return $this->hasMany(Gallery::class);
+    }
+
+    public function floor_plans()
+    {
+        return $this->hasMany(FloorPlan::class);
     }
 
     public function area()

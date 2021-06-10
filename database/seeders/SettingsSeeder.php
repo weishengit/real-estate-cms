@@ -14,7 +14,10 @@ class SettingsSeeder extends Seeder
      */
     public function run()
     {
-        Settings::create(['name' => 'sitename', 'value' => 'Real Estate']);
+        Settings::create(['name' => 'meta_site_name', 'value' => 'Real Estate']);
+        Settings::create(['name' => 'meta_site_author', 'value' => 'Real Estate']);
+        Settings::create(['name' => 'meta_site_description', 'value' => 'Real Estate']);
+        Settings::create(['name' => 'meta_site_keywords', 'value' => 'real estate philippines, condo in manila, ']);
         Settings::create(['name' => 'contact', 'value' => '0911 111 1111']);
         Settings::create(['name' => 'email', 'value' => 'vistacondo@example.com']);
         Settings::create(['name' => 'facebook', 'value' => 'link to fb page']);

@@ -25,6 +25,10 @@ class CreatePropertiesTable extends Migration
             $table->string('type');
             $table->string('cost');
             $table->boolean('listed');
+            $table->string('beds');
+            $table->string('baths');
+            $table->string('parking');
+            $table->longText('map');
             $table->timestamps();
             $table->softDeletes();
         });
