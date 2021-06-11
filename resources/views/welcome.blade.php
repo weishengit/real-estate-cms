@@ -5,7 +5,7 @@
 <div class="intro intro-carousel">
     <div id="carousel" class="owl-carousel owl-theme">
         {{-- CAROUSEL --}}
-        @if (!isset($showcase))
+        @if (isset($showcase))
             @foreach ($showcase as $property)
             <div class="carousel-item-a intro-item bg-image" style="background-image: url({{ asset('assets/img/properties/' . $property->cover_image) }}); object-fit: none; ">
                 <div class="overlay overlay-a"></div>
@@ -38,7 +38,7 @@
             </div>
             @endforeach
         @else
-            <h1>Welcome to , {{ $settings->meta_site_name }}</h1>
+            <h1>Amazing Properties</h1>
         @endif
 
 

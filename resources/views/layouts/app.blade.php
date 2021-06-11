@@ -6,10 +6,10 @@
 
     <meta name="robots" content="noindex">
 
-    <title>Vista Land Residences - House and Lot | Condominium</title>
-    <meta name="author" content="Vista Land Residences">
-    <meta name="description" content="The developer of Brittany, Crown Asia, Camella, Lessandra, Bria, Lumina and Vista Residences. Contact Now: 0923.875.7468, 0917.621.7831, vistalandresidences.com@gmail.com. Your real estates and condo in Manila largest builder in the Philippines." />
-    <meta name="keywords" content="vista land residences, real estate philippines, condo in manila, condominium philippines, bahay ni juan, bria, lumina, camella homes" />
+    <title>{{ $meta_site_name }}</title>
+    <meta name="author" content="{{ $meta_site_author }}">
+    <meta name="description" content="{{ $meta_site_description }}" />
+    <meta name="keywords" content="{{ $meta_site_keywords }}" />
     <link rel="canonical" href="{{ url()->current() }}/" />
 
     <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
@@ -48,7 +48,7 @@
 
 <body>
     {{-- Navigation --}}
-    @include('layouts.nav')
+    @include('layouts.nav', ['meta_site_name' => $meta_site_name])
 
     {{-- Content --}}
     @yield('content')
@@ -60,21 +60,20 @@
                 <div class="col-sm-12 col-md-4">
                     <div class="widget-a">
                         <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">VistaCondo</h3>
+                            <h3 class="w-title-a text-brand">{{ $meta_site_name }}</h3>
                         </div>
                         <div class="w-body-a">
                             <p class="w-text-a color-text-a">
-                                Vista Residences is the condominium development arm of the country's largest homebuilder, Vista Land & Lifescapes, Inc.
-                                We offer top-tier properties across the country’s premier universities, and developed business districts.
+                                {{ $meta_site_description }}
                             </p>
                         </div>
                         <div class="w-footer-a">
                             <ul class="list-unstyled">
                                 <li class="color-a">
-                                    <span class="color-text-a">Phone .</span> contact@example.com
+                                    <span class="color-text-a">Phone .</span> {{ $contact }}
                                 </li>
                                 <li class="color-a">
-                                    <span class="color-text-a">Email .</span> +54 356 945234
+                                    <span class="color-text-a">Email .</span> {{ $email }}
                                 </li>
                             </ul>
                         </div>
@@ -154,7 +153,7 @@
                     <div class="copyright-footer">
                         <p class="copyright color-text-a">
                             &copy; Copyright
-                            <span class="color-a">VistaCondo</span> All Rights Reserved.
+                            <span class="color-a">{{ $meta_site_name }}</span> All Rights Reserved.
                         </p>
                     </div>
                 </div>

@@ -7,7 +7,21 @@
             <span></span>
             <span></span>
         </button>
-        <a class="navbar-brand text-brand" href="{{ route('home') }}">Vista<span class="color-b">Condo</span></a>
+        <a class="navbar-brand text-brand" href="{{ route('home') }}">
+            @if (isset($meta_site_name))
+                @php $title = $meta_site_name @endphp
+                @if (str_word_count($meta_site_name) > 1)
+                    @php
+                        $title = explode(' ', $meta_site_name, 2)
+                    @endphp
+                    {{ $title[0] }}<span class="color-b">{{ $title[1] }}</span>
+                @else
+                {{ $title }}
+                @endif
+            @else
+            Real<span class="color-b">Estate</span>
+            @endif
+        </a>
         <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
             data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
             <span class="fa fa-search" aria-hidden="true"></span>
