@@ -21,8 +21,12 @@ class GalleryFactory extends Factory
      */
     public function definition()
     {
+        $property_number = $this->faker->numberBetween(1, 50);
+        $image = 'gallery' . $this->faker->numberBetween(1, 6) . '.jpg';
+
         return [
-            //
+            'property_id' => $property_number,
+            'image' => $image
         ];
     }
 }

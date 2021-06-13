@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsSeeder::class);
         $this->call(AreaSeeder::class);
         $this->call(PropertySeeder::class);
+        $this->call(GallerySeeder::class);
     }
 }

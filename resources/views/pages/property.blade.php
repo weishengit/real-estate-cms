@@ -41,9 +41,13 @@
                         <div class="carousel-item-b">
                             <img style="object-fit: cover"; src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
                         </div>
-                        <div class="carousel-item-b">
-                            <img src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
-                        </div>
+                        @if (isset($images))
+                            @foreach ($images as $image)
+                                <div class="carousel-item-b">
+                                    <img style="object-fit: cover"; src="{{ asset('assets/img/properties/gallery/' . $image->image) }}" alt="{{ $property->slug }} image">
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                     <div class="row justify-content-between">
                         <div class="col-md-5 col-lg-4">
@@ -169,7 +173,9 @@
                         </div>
                         {{-- Location --}}
                         <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-                            {!! $property->map !!}
+                            <div class="row">
+                                {!! $property->map !!}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -32,6 +32,7 @@
                 <label class="col-md-3 col-form-label" for="slug">Slug Name(Auto)</label>
                 <div class="col-md-9">
                     <input value="{{ old('slug') }}" class="form-control" id="slug" type="text" name="slug" hidden>
+                    <input value="{{ old('slug') }}" class="form-control" id="slug-display" type="text" disabled>
                 </div>
             </div>
             <div class="form-group row">
@@ -114,6 +115,7 @@
             { 'title': $(this).val() },
             function( data ) {
                 $('#slug').val(data.slug);
+                $('#slug-display').val(data.slug);
             }
         );
     });

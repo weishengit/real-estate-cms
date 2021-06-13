@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequestValidation;
+use App\Models\Gallery;
 use App\Models\Message;
 use App\Models\Property;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -25,8 +27,11 @@ class PagesController extends Controller
     public function contact()
     {
         // TODO: Form Submit
-
-        return view('pages.contact');
+        $settings = [];
+        foreach (Settings::all() as $setting) {
+            $settings[$setting->name] = $setting->value;
+        }
+        return view('pages.contact', compact('settings'));
     }
 
     public function properties()
@@ -41,7 +46,8 @@ class PagesController extends Controller
         if ($property == null) {
             return redirect()->route('properties');
         }
-        return view('pages.property', compact('property'));
+        $images = Gallery::where('property_id', $property->id)->get();
+        return view('pages.property', compact('property', 'images'));
     }
 
     public function inquire(ContactRequestValidation $request)

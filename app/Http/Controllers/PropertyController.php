@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\StorePropertyValidation;
 use App\Http\Requests\UpdatePropertyValidation;
+use App\Models\Gallery;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PropertyController extends Controller
@@ -84,7 +85,13 @@ class PropertyController extends Controller
      */
     public function checkSlug(Request $request)
     {
+        $property = Property::find($request->input('id'));
         $slug = SlugService::createSlug(Property::class, 'slug', $request->title);
+        if ($property != null) {
+            if (strtolower($property->title) == strtolower($request->title)) {
+                $slug = $property->slug;
+            }
+        }
 
         return response()->json(['slug' => $slug]);
     }
@@ -98,7 +105,9 @@ class PropertyController extends Controller
     public function edit(Property $property)
     {
         $areas = Area::all();
-        return view('admin.properties.edit', compact('property', 'areas'));
+        $pictures = Gallery::where('property_id', $property->id)->get();
+
+        return view('admin.properties.edit', compact('property', 'areas', 'pictures'));
     }
 
     /**

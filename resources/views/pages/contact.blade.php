@@ -10,7 +10,7 @@
                 <div class="col-md-12 col-lg-8">
                     <div class="title-single-box">
                         <h1 class="title-single">Contact US</h1>
-                        <span class="color-text-a">Inquire about a Vista Residences unit by filling out the form below and we will get in touch with you within 24 hours..</span>
+                        <span class="color-text-a">Inquire about a unit by filling out the form below and we will get in touch with you within 24 hours.</span>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4">
@@ -118,10 +118,10 @@
                                     </div>
                                     <div class="icon-box-content">
                                         <p class="mb-1">Email.
-                                            <span class="color-a">contact@example.com</span>
+                                            <span class="color-a">{{ $settings['email'] }}</span>
                                         </p>
                                         <p class="mb-1">Phone.
-                                            <span class="color-a">+54 356 945234</span>
+                                            <span class="color-a">{{ $settings['contact'] }}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -136,8 +136,7 @@
                                     </div>
                                     <div class="icon-box-content">
                                         <p class="mb-1">
-                                            Manhattan, Nueva York 10036,
-                                            <br> EE. UU.
+                                            {{ $settings['address'] }}
                                         </p>
                                     </div>
                                 </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card">
-    <div class="card-header"><strong>Add Property</strong></div>
+    <div class="card-header"><strong>Edit Property</strong></div>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
         Check The Following
@@ -32,6 +32,7 @@
                 <label class="col-md-3 col-form-label" for="slug">Slug Name(Auto)</label>
                 <div class="col-md-9">
                     <input value="{{ $property->slug }}" class="form-control" id="slug" type="text" name="slug" hidden>
+                    <input value="{{ $property->slug }}" class="form-control" id="slug-display" type="text" disabled>
                 </div>
             </div>
             <div class="form-group row">
@@ -106,16 +107,105 @@
     </div>
     </form>
 </div>
+{{-- Gallery Card --}}
+<div class="card">
+    <div class="card-header"><strong>Edit Gallery</strong></div>
+    <div class="card-body">
+        @if (isset($pictures))
+            <div class="row">
+                <div class="col-6 col-lg-3">
+                    <div class="card" style="height: 90%">
+                        <div class="card-body p-3 text-center">
+                            <br>
+                            <h2>Add Image</h2>
+                            <button class="btn pl-4 pt-3" type="button" data-toggle="modal" data-target="#imageModal">
+                                <svg class="c-sidebar-nav-icon" style="width: 4rem; height: 4rem">
+                                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-plus') }}"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                @foreach ($pictures as $picture)
+                <div class="col-6 col-lg-3">
+                    <div class="card">
+                        <form action="{{ route('admin.gallery.destroy', ['gallery' => $picture]) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure you want to remove this image?')" style="position: absolute; top: 12%; left: 90%; transform: translate(-50%, -50%); font-size: 1rem; border: none; cursor: pointer; border-radius: 5px;">
+                                &times;
+                            </button>
+                        </form>
+                        <img src="{{ asset('assets/img/properties/gallery/' . $picture->image) }}" alt="{{ $picture->image }}"  class="img-thumbnail">
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        @else
+            <h2 class="text-center">No Images In Gallery</h2>
+            <br>
+            <form
+                action="{{ route('admin.gallery.store') }}"
+                method="POST"
+                enctype="multipart/form-data">
+                @csrf
+                <input name="property_id" type="text" value="{{ $property->id }}" hidden>
+                <div class="form-group text-center">
+                    <label for="image" class="text-center">Add Image To Gallery</label>
+                    <input name="image" type="file" class="form-control-sm text-center" id="new_image">
+                    <button class="btn btn-sm btn-primary" type="submit"> Save Image</button>
+                </div>
+            </form>
+        @endif
+    </div>
+</div>
+
+
+
+{{-- Add Image Modal --}}
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form
+            action="{{ route('admin.gallery.store') }}"
+            method="POST"
+            enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Image</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <input name="property_id" type="text" value="{{ $property->id }}" hidden>
+                    <div class="form-group text-center">
+                        <label for="new_image" class="text-center">Select Image</label>
+                        <input name="image" type="file" class="form-control-sm text-center" id="new_image">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save Image</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{-- View Image --}}
 @endsection
 
 @section('scripts')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
+
     $('#title').change(function(e) {
         $.get('{{ route('admin.properties.checkslug') }}',
-            { 'title': $(this).val() },
+            { 'title': $(this).val(), 'id': {{ $property->id }} },
             function( data ) {
                 $('#slug').val(data.slug);
+                $('#slug-display').val(data.slug);
             }
         );
     });

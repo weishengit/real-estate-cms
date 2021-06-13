@@ -3,73 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\StoreGalleryValidation;
+use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param Property $property
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGalleryValidation $request)
     {
-        //
-    }
+        $property = Property::find($request->input('property_id'));
+        if ($property == null) {
+            return redirect()->back()->with('message', 'Error: Image was not added.');
+        }
+        $newImageName = uniqid() . '-' . $property->id . '.' . $request->image->extension();
+        $request->image->move(public_path('assets/img/properties/gallery/'), $newImageName);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Gallery  $gallery
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Gallery $gallery)
-    {
-        //
-    }
+        // CREATE GALLERY PICTURE
+        $property->galleries()->create(['property_id' => $property->id, 'image' => $newImageName]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Gallery  $gallery
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Gallery $gallery)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Gallery  $gallery
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Gallery $gallery)
-    {
-        //
+        return redirect()->back()->with('message', 'Image has been added to the gallery.');
     }
 
     /**
@@ -80,6 +41,11 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        DB::transaction(function () use($gallery){
+            File::delete(public_path('assets/img/properties/gallery/'. $gallery->image));
+            $gallery->delete();
+        });
+
+        return redirect()->back()->with('message', 'Image has been removed.');
     }
 }

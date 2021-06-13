@@ -3,7 +3,7 @@
     {{-- TOP TEXT --}}
     <div class="c-sidebar-brand d-lg-down-none">
         <div class="c-sidebar-brand-full">
-            <a class="text-light" href="index.html">
+            <a class="text-light" href="{{ route('admin.home') }}">
                 <h1><span class="badge badge-secondary">Vista CMS</span></h1>
             </a>
         </div>
@@ -19,7 +19,7 @@
     <ul class="c-sidebar-nav ps ps--active-y">
         {{-- TOP BUTTON --}}
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="index.html">
+            <a class="c-sidebar-nav-link" href="{{ route('admin.home') }}">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-devices') }}"></use>
                 </svg>

@@ -22,10 +22,6 @@
             Real<span class="color-b">Estate</span>
             @endif
         </a>
-        <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
-            data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
-            <span class="fa fa-search" aria-hidden="true"></span>
-        </button>
         <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
             <ul class="navbar-nav">
                 <li class="nav-item">

@@ -25,7 +25,7 @@ class PropertyFactory extends Factory
         $names = ['Mandaluyong', 'Makati', 'Quezon City', 'Pasig', 'Ortigas', 'Shaw', 'Alabang', 'Taguig', 'Manila'];
         $title = $this->faker->numberBetween(100, 400) . ' ' . $this->faker->randomElement($names) . $this->faker->randomElement(['', ' Heights']);
         $slug = SlugService::createSlug(Property::class, 'slug', $title);
-        $image = 'cover-p' . $this->faker->numberBetween(1, 6) . '.jpg';
+        $image = 'cover-p' . $this->faker->numberBetween(1, 7) . '.jpg';
 
         return [
             'area_id' => $this->faker->numberBetween(1, 7),

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -36,5 +37,6 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/properties/checkslug', [PropertyController::class, 'checkSlug'])->name('properties.checkslug');
     Route::put('/properties/{property}/restore', [PropertyController::class, 'restore'])->name('properties.restore');
     Route::resource('properties', PropertyController::class);
+    Route::resource('gallery', GalleryController::class);
 });
 
