@@ -24,10 +24,10 @@ class GalleryController extends Controller
         if ($property == null) {
             return redirect()->back()->with('message', 'Error: Image was not added.');
         }
+
         $newImageName = uniqid() . '-' . $property->id . '.' . $request->image->extension();
         $request->image->move(public_path('assets/img/properties/gallery/'), $newImageName);
 
-        // CREATE GALLERY PICTURE
         $property->galleries()->create(['property_id' => $property->id, 'image' => $newImageName]);
 
         return redirect()->back()->with('message', 'Image has been added to the gallery.');

@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AreaSeeder::class);
         $this->call(PropertySeeder::class);
         $this->call(GallerySeeder::class);
+        $this->call(AmenitySeeder::class);
     }
 }

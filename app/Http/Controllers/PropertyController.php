@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\StorePropertyValidation;
 use App\Http\Requests\UpdatePropertyValidation;
+use App\Models\Amenity;
 use App\Models\Gallery;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -106,8 +107,9 @@ class PropertyController extends Controller
     {
         $areas = Area::all();
         $pictures = Gallery::where('property_id', $property->id)->get();
+        $amenities = Amenity::where('property_id', $property->id)->get();
 
-        return view('admin.properties.edit', compact('property', 'areas', 'pictures'));
+        return view('admin.properties.edit', compact('property', 'areas', 'pictures', 'amenities'));
     }
 
     /**
@@ -138,8 +140,7 @@ class PropertyController extends Controller
             'cover_image' => $cover_picture,
         ]);
 
-        // REDIRECT TO PROPERTY INDEX
-        return redirect()->route('admin.properties.index')->with('message', $request->title . ' has been updated.');
+        return redirect()->back()->with('message', $request->title . ' has been updated.');
     }
 
     /**

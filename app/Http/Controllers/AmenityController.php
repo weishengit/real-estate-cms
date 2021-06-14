@@ -2,74 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAmenityValidation;
 use App\Models\Amenity;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class AmenityController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreAmenityValidation  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAmenityValidation $request)
     {
-        //
-    }
+        $property = Property::find($request->input('property_id'));
+        if ($property == null) {
+            return redirect()->back()->with('message', 'Error: Amenity was not added.');
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Amenity  $amenity
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Amenity $amenity)
-    {
-        //
-    }
+        $property->amenities()->create($request->validated());
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Amenity  $amenity
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Amenity $amenity)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Amenity  $amenity
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Amenity $amenity)
-    {
-        //
+        return redirect()->back()->with('message', $request->input('name') . ' has been added to the list.');
     }
 
     /**
@@ -80,6 +35,9 @@ class AmenityController extends Controller
      */
     public function destroy(Amenity $amenity)
     {
-        //
+        $name = $amenity->name;
+        $amenity->delete();
+
+        return redirect()->back()->with('message', $name . ' has been removed from the list of amenities');
     }
 }

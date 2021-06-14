@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Amenity;
 use Illuminate\Database\Seeder;
 
 class AmenitySeeder extends Seeder
@@ -13,6 +14,6 @@ class AmenitySeeder extends Seeder
      */
     public function run()
     {
-        //
+        Amenity::factory()->times(200)->create();
     }
 }

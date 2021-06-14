@@ -134,15 +134,11 @@
                             </div>
                             <div class="amenities-list color-text-a">
                                 <ul class="list-a no-margin">
-                                    <li>Balcony</li>
-                                    <li>Outdoor Kitchen</li>
-                                    <li>Cable Tv</li>
-                                    <li>Deck</li>
-                                    <li>Tennis Courts</li>
-                                    <li>Internet</li>
-                                    <li>Parking</li>
-                                    <li>Sun Room</li>
-                                    <li>Concrete Flooring</li>
+                                    @if (isset($amenities))
+                                        @foreach ($amenities as $amenity)
+                                            <li>{{ $amenity->name }}</li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                             {{-- Amenities End --}}

@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Amenity extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'property_id',
+        'name',
+    ];
+
+    public function property()
+    {
+        return $this->belongsTo(Property::class);
+    }
 }

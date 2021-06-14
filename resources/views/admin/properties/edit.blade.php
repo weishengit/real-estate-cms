@@ -114,7 +114,7 @@
         @if (isset($pictures))
             <div class="row">
                 <div class="col-6 col-lg-3">
-                    <div class="card" style="height: 90%">
+                    <div class="card">
                         <div class="card-body p-3 text-center">
                             <br>
                             <h2>Add Image</h2>
@@ -159,8 +159,31 @@
         @endif
     </div>
 </div>
-
-
+{{-- Amenity Card --}}
+<div class="card">
+    <div class="card-header"><strong>Edit Amenities</strong> - <button data-toggle="modal" data-target="#amenityModal" type="button" class="btn btn-success">New+</button> </div>
+    <div class="card-body">
+        <div class="row">
+        @if (isset($amenities))
+            @foreach ($amenities as $amenity)
+                <div class="col-3 col-lg-3">
+                    <div class="card float-left">
+                        <form action="{{ route('admin.amenities.destroy', ['amenity' => $amenity]) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            {{ $amenity->name }}
+                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure you want to remove this amenity?')">
+                                &times;
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                @endforeach
+        @else
+            <h3 class="text-center">No Ameneties On The List</h3>
+        @endif
+    </div>
+</div>
 
 {{-- Add Image Modal --}}
 <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -193,7 +216,35 @@
     </div>
 </div>
 
-{{-- View Image --}}
+{{-- Add Amenity Modal --}}
+<div class="modal fade" id="amenityModal" tabindex="-1" role="dialog" aria-labelledby="amenityModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form
+            action="{{ route('admin.amenities.store') }}"
+            method="POST">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Amenity</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <input name="property_id" type="text" value="{{ $property->id }}" hidden>
+                    <div class="form-group text-center">
+                        <label for="new_amenity" class="text-center">Amenity Name</label>
+                        <input name="name" type="text" class="form-control-sm text-center" id="new_amenity">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save Amenity</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
 
 @section('scripts')

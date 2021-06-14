@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +39,6 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::put('/properties/{property}/restore', [PropertyController::class, 'restore'])->name('properties.restore');
     Route::resource('properties', PropertyController::class);
     Route::resource('gallery', GalleryController::class);
+    Route::resource('amenities', AmenityController::class);
 });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequestValidation;
+use App\Models\Amenity;
 use App\Models\Gallery;
 use App\Models\Message;
 use App\Models\Property;
@@ -13,7 +14,7 @@ class PagesController extends Controller
 {
     public function index()
     {
-        // TODO:
+        // TODO: Move Meta Data Here
         $showcase = Property::where('listed', 1)->get()->random(5);
         $latest = Property::where('listed', 1)->limit(7)->latest()->get();
         return view('welcome', compact('showcase', 'latest'));
@@ -46,8 +47,11 @@ class PagesController extends Controller
         if ($property == null) {
             return redirect()->route('properties');
         }
+
         $images = Gallery::where('property_id', $property->id)->get();
-        return view('pages.property', compact('property', 'images'));
+        $amenities = Amenity::where('property_id', $property->id)->get();
+
+        return view('pages.property', compact('property', 'images', 'amenities'));
     }
 
     public function inquire(ContactRequestValidation $request)

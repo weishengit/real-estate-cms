@@ -21,8 +21,20 @@ class AmenityFactory extends Factory
      */
     public function definition()
     {
+        $amenities = [
+            'Balcony',
+            'Parking',
+            'Cable Tv',
+            'Internet',
+            '24-hour security',
+            'Fitness and Wellness Gym',
+            'Function Room',
+            'Swimming Pool'
+        ];
+
         return [
-            //
+            'property_id' => $this->faker->numberBetween(1, 50),
+            'name' => $this->faker->randomElement($amenities)
         ];
     }
 }
