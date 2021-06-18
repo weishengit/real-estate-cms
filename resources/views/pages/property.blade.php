@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('seo')
+<title>{{ $seo['seo_title'] }}</title>
+<meta name="description" content="{{ $seo['seo_description'] }}" />
+@endsection
+
 @section('content')
 <main id="main">
 
@@ -17,10 +22,10 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="index.html">Home</a>
+                                <a href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="property-grid.html">Properties</a>
+                                <a href="{{ route('properties') }}">Properties</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 {{ $property->title }}
@@ -39,12 +44,12 @@
                 <div class="col-sm-12">
                     <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
                         <div class="carousel-item-b">
-                            <img style="object-fit: cover"; src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
+                            <img loading="lazy" style="object-fit: cover" src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image">
                         </div>
                         @if (isset($images))
                             @foreach ($images as $image)
                                 <div class="carousel-item-b">
-                                    <img style="object-fit: cover"; src="{{ asset('assets/img/properties/gallery/' . $image->image) }}" alt="{{ $property->slug }} image">
+                                    <img loading="lazy" style="object-fit: cover" src="{{ asset('assets/img/properties/gallery/' . $image->image) }}" alt="{{ $property->slug }} image">
                                 </div>
                             @endforeach
                         @endif
@@ -150,11 +155,6 @@
                 <div class="col-md-10 offset-md-1">
                     {{-- Header --}}
                     <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
-                        {{-- Floor plans --}}
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-plans-tab" data-toggle="pill" href="#pills-plans" role="tab"
-                                aria-controls="pills-plans" aria-selected="false">Floor Plans</a>
-                        </li>
                         {{-- Location --}}
                         <li class="nav-item">
                             <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
@@ -163,13 +163,9 @@
                     </ul>
                     {{-- Content --}}
                     <div class="tab-content" id="pills-tabContent">
-                        {{-- Floor plans --}}
-                        <div class="tab-pane fade show active" id="pills-plans" role="tabpanel" aria-labelledby="pills-plans-tab">
-                            <img src="{{ asset('assets/img/plan2.jpg') }}" alt="" class="img-fluid">
-                        </div>
                         {{-- Location --}}
                         <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-                            <div class="row">
+                            <div loading="lazy" class="row">
                                 {!! $property->map !!}
                             </div>
                         </div>

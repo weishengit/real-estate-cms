@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('seo')
+<title>{{ $seo['seo_title'] }}</title>
+<meta name="description" content="{{ $seo['seo_description'] }}" />
+@endsection
+
 @section('content')
 <!-- ======= Intro Section ======= -->
 <div class="intro intro-carousel">
@@ -65,55 +70,54 @@
                 </div>
             </div>
             <div id="property-carousel" class="owl-carousel owl-theme">
-
-                <div class="carousel-item-b">
-                    <div class="card-box-a card-shadow">
-                        <div class="img-box-a">
-                            <img src="assets/img/property-6.jpg" alt="" class="img-a img-fluid">
-                        </div>
-                        <div class="card-overlay">
-                            <div class="card-overlay-a-content">
-                                <div class="card-header-a">
-                                    <h2 class="card-title-a">
-                                        <a href="property-single.html">206 Mount
-                                            <br /> Olive Road Two</a>
-                                    </h2>
-                                </div>
-                                <div class="card-body-a">
-                                    <div class="price-box d-flex">
-                                        <span class="price-a">rent | $ 12.000</span>
+                @if (isset($latest))
+                    @foreach ($latest as $property)
+                    <div class="carousel-item-b">
+                        <div class="card-box-a card-shadow">
+                            <div class="img-box-a">
+                                <img src="{{ asset('assets/img/properties/' . $property->cover_image) }}" alt="{{ $property->slug }} image" class="img-a img-fluid">
+                            </div>
+                            <div class="card-overlay">
+                                <div class="card-overlay-a-content">
+                                    <div class="card-header-a">
+                                        <h2 class="card-title-a">
+                                            <a href="{{ route('property', ['property' => $property->slug]) }}">{{ $property->title }}</a>
+                                        </h2>
                                     </div>
-                                    <a href="#" class="link-a">Click here to view
-                                        <span class="ion-ios-arrow-forward"></span>
-                                    </a>
-                                </div>
-                                <div class="card-footer-a">
-                                    <ul class="card-info d-flex justify-content-around">
-                                        <li>
-                                            <h4 class="card-info-title">Area</h4>
-                                            <span>340m
-                                                <sup>2</sup>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <h4 class="card-info-title">Beds</h4>
-                                            <span>2</span>
-                                        </li>
-                                        <li>
-                                            <h4 class="card-info-title">Baths</h4>
-                                            <span>4</span>
-                                        </li>
-                                        <li>
-                                            <h4 class="card-info-title">Garages</h4>
-                                            <span>1</span>
-                                        </li>
-                                    </ul>
+                                    <div class="card-body-a">
+                                        <div class="price-box d-flex">
+                                            <span class="price-a">{{ $property->type }} | &#8369; {{ is_numeric($property->cost) ? number_format($property->cost, 0) : $property->cost }}</span>
+                                        </div>
+                                        <a href="{{ route('property', ['property' => $property->slug]) }}" class="link-a">Click here to view
+                                            <span class="ion-ios-arrow-forward"></span>
+                                        </a>
+                                    </div>
+                                    <div class="card-footer-a">
+                                        <ul class="card-info d-flex justify-content-around">
+                                            <li>
+                                                <h4 class="card-info-title">Area</h4>
+                                                <span>{{ $property->area->name }}</span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">Beds</h4>
+                                                <span>{{ $property->beds }}</span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">Baths</h4>
+                                                <span>{{ $property->baths }}</span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">Parking</h4>
+                                                <span>{{ $property->parking }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
+                    @endforeach
+                @endif
             </div>
         </div>
     </section><!-- End Latest Properties Section -->

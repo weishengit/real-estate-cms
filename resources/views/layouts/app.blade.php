@@ -4,11 +4,9 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <meta name="robots" content="noindex">
+    @yield('seo')
 
-    <title>{{ $meta_site_name }}</title>
     <meta name="author" content="{{ $meta_site_author }}">
-    <meta name="description" content="{{ $meta_site_description }}" />
     <meta name="keywords" content="{{ $meta_site_keywords }}" />
     <link rel="canonical" href="{{ url()->current() }}/" />
 
@@ -36,11 +34,13 @@
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/ionicons/css/ionicons.min.css') }}" rel="stylesheet" >
+    <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet" >
     <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet" >
     />
+
+
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
@@ -165,12 +165,19 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}" ></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('vendor/scrollreveal/scrollreveal.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.easing/jquery.easing.min.js') }}" ></script>
+    <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}" ></script>
+    <script src="{{ asset('vendor/scrollreveal/scrollreveal.min.js') }}" ></script>
     <!-- Template Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
+
+    {{-- Lazy Image Loading --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script>
+        const observer = lozad();
+        observer.observe();
+    </script> --}}
 </body>
 </html>

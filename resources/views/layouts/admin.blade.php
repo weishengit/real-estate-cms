@@ -22,6 +22,8 @@
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <meta name="robots" content="noindex">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

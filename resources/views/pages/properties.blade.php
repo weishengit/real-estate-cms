@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('seo')
+<title>{{ $seo['seo_title'] }}</title>
+<meta name="description" content="{{ $seo['seo_description'] }}" />
+@endsection
+
 @section('content')
 <main id="main">
 
@@ -17,7 +22,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#">Home</a>
+                                <a href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Properties
@@ -36,13 +41,15 @@
                 {{-- Filter --}}
                 <div class="col-sm-12">
                     <div class="grid-option">
-                        <form>
-                            <select class="custom-select">
-                                <option selected>All</option>
-                                <option value="1">New to Old</option>
-                                <option value="2">For Rent</option>
-                                <option value="3">For Sale</option>
+                        <form action="{{ route('properties')}}">
+                            <select name="search" class="custom-select">
+                                <option @if ($_GET['search'] == 'all' || $_GET['search'] == null) selected @endif value="all">All</option>
+                                <option @if ($_GET['search'] == 'newest') selected @endif value="newest">New to Old</option>
+                                <option @if ($_GET['search'] == 'oldest') selected @endif value="oldest">Old to New</option>
+                                <option @if ($_GET['search'] == 'sale') selected @endif value="sale">For Sale</option>
+                                <option @if ($_GET['search'] == 'rent') selected @endif value="rent">For Rent</option>
                             </select>
+                            <button type="submit" class="btn btn-sm btn-primary">Search</button>
                         </form>
                     </div>
                 </div>
@@ -102,7 +109,7 @@
 
             </div>
             {{-- PAGINATION --}}
-            {{ $properties->links() }}
+            {{ $properties->appends(['search' =>  $_GET['search'] ?? 'all' ])->links() }}
         </div>
     </section><!-- End Property Grid Single-->
 
