@@ -25,26 +25,18 @@
     <meta name="robots" content="noindex">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    {{-- Mapbox --}}
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
-    <meta name="robots" content="noindex">
-    @yield('styles')
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
-    <title>Vista Land Residences - House and Lot | Condominium</title>
-    <meta name="author" content="Vista Land Residences">
-    <meta name="description" content="The developer of Brittany, Crown Asia, Camella, Lessandra, Bria, Lumina and Vista Residences. Contact Now: 0923.875.7468, 0917.621.7831, vistalandresidences.com@gmail.com. Your real estates and condo in Manila largest builder in the Philippines." />
-    <meta name="keywords" content="vista land residences, real estate philippines, condo in manila, condominium philippines, bahay ni juan, bria, lumina, camella homes" />
+    <title>Real Estate System</title>
+    <meta name="author" content="Real Estate System">
+    <meta name="description" content="Real Estate System" />
     <link rel="canonical" href="{{ url()->current() }}/" />
 </head>
 
@@ -73,18 +65,18 @@
                 </div>
             </main>
             <footer class="c-footer">
-                <div>Vista CMS © 2021</div>
+                <div>Real Estate CMS © 2021</div>
             </footer>
         </div>
         {{-- /CONTENT --}}
 
     </div>
     {{-- SCRIPTS --}}
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js" integrity="sha512-yUNtg0k40IvRQNR20bJ4oH6QeQ/mgs9Lsa6V+3qxTj58u2r+JiAYOhOW0o+ijuMmqCtCEg7LZRA+T4t84/ayVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
     @yield('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js" integrity="sha512-yUNtg0k40IvRQNR20bJ4oH6QeQ/mgs9Lsa6V+3qxTj58u2r+JiAYOhOW0o+ijuMmqCtCEg7LZRA+T4t84/ayVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('js/coreui.bundle.min.js') }}"></script>
+
+
 </body>
 
 </html>

@@ -2,6 +2,8 @@
 
 - Add Contact Logic
 
-- Add Property SEO
+-(DONE) Add Property SEO
 
 - Add Settings
+
+-(DONE) Add Property Filters

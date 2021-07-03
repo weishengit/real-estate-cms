@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('seo')
-<title>{{ $seo['seo_title'] }}</title>
-<meta name="description" content="{{ $seo['seo_description'] }}" />
+    <title>{{ $seo['seo_title'] }}</title>
+    <meta name="description" content="{{ $seo['seo_description'] }}" />
 @endsection
 
 @section('content')
