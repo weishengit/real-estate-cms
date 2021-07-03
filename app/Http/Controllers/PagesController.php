@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequestValidation;
 use App\Models\Amenity;
+use App\Models\Area;
 use App\Models\Gallery;
 use App\Models\Message;
 use App\Models\Property;
@@ -75,29 +76,39 @@ class PagesController extends Controller
             'seo_description' => $settings['meta_site_description']
         ];
 
+        $areas = Area::all();
+        $properties = Property::where('listed', 1);
+
+        if ($request->input('area') != null || $request->input('area') != 'all') {
+            $area = Area::where('name', $request->input('area'))->first();
+            if (!empty($area)) {
+                $properties = $properties->where('area_id', $area->id);
+            }
+        }
+
         switch ($request->input('search')) {
             case 'newest':
-                $properties = Property::where('listed', 1)->latest()->paginate(9);
+                $properties = $properties->latest()->paginate(9);
                 break;
             case 'oldest':
-                $properties = Property::where('listed', 1)->oldest()->paginate(9);
+                $properties = $properties->oldest()->paginate(9);
                 break;
             case 'rent':
-                $properties = Property::where('listed', 1)->where(function($query){
+                $properties = $properties->where(function($query){
                     $query->where('type', 'Rent')->orWhere('type', 'Rent/Sale');
                 })->paginate(9);
                 break;
             case 'sale':
-                $properties = Property::where('listed', 1)->where(function($query){
+                $properties = $properties->where(function($query){
                     $query->where('type', 'Sale')->orWhere('type', 'Rent/Sale');
                 })->paginate(9);
                 break;
             default:
-                $properties = Property::where('listed', 1)->paginate(9);
+                $properties = $properties->paginate(9);
                 break;
         }
 
-        return view('pages.properties', compact('properties', 'settings', 'seo'));
+        return view('pages.properties', compact('properties', 'settings', 'seo', 'areas'));
     }
 
     public function property($slug)

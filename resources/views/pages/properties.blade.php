@@ -42,12 +42,20 @@
                 <div class="col-sm-12">
                     <div class="grid-option">
                         <form action="{{ route('properties')}}">
+                            <select name="area" class="custom-select">
+                                @if (isset($areas))
+                                    <option @if (isset($_GET['area']) && ($_GET['area'] == 'all' || $_GET['area'] == null)) selected @endif value="all">All</option>
+                                    @foreach ($areas as $area)
+                                        <option @if (isset($_GET['area']) && $_GET['area'] == $area->name) selected @endif value="{{ $area->name }}">{{ $area->name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                             <select name="search" class="custom-select">
-                                <option @if ($_GET['search'] == 'all' || $_GET['search'] == null) selected @endif value="all">All</option>
-                                <option @if ($_GET['search'] == 'newest') selected @endif value="newest">New to Old</option>
-                                <option @if ($_GET['search'] == 'oldest') selected @endif value="oldest">Old to New</option>
-                                <option @if ($_GET['search'] == 'sale') selected @endif value="sale">For Sale</option>
-                                <option @if ($_GET['search'] == 'rent') selected @endif value="rent">For Rent</option>
+                                <option @if (isset($_GET['search']) && ($_GET['search'] == 'all' || $_GET['search'] == null)) selected @endif value="all">All</option>
+                                <option @if (isset($_GET['search']) && $_GET['search'] == 'newest') selected @endif value="newest">New to Old</option>
+                                <option @if (isset($_GET['search']) && $_GET['search'] == 'oldest') selected @endif value="oldest">Old to New</option>
+                                <option @if (isset($_GET['search']) && $_GET['search'] == 'sale') selected @endif value="sale">For Sale</option>
+                                <option @if (isset($_GET['search']) && $_GET['search'] == 'rent') selected @endif value="rent">For Rent</option>
                             </select>
                             <button type="submit" class="btn btn-sm btn-primary">Search</button>
                         </form>
@@ -109,7 +117,7 @@
 
             </div>
             {{-- PAGINATION --}}
-            {{ $properties->appends(['search' =>  $_GET['search'] ?? 'all' ])->links() }}
+            {{ $properties->appends(['search' =>  $_GET['search'] ?? 'all', 'area' => $_GET['area'] ?? 'all' ])->links() }}
         </div>
     </section><!-- End Property Grid Single-->
 

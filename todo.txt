@@ -1,0 +1,7 @@
+#TODO:
+
+- Add Contact Logic
+
+- Add Property SEO
+
+- Add Settings
