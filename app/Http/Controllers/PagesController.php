@@ -146,7 +146,9 @@ class PagesController extends Controller
             'seo_description' => $settings['meta_site_description']
         ];
 
-        return view('pages.privacy', compact('settings', 'seo'));
+        $privacy = Settings::where('name', 'privacy_policy')->first();
+
+        return view('pages.privacy', compact('settings', 'seo', 'privacy'));
     }
 
     public function inquire(ContactRequestValidation $request)

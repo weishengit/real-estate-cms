@@ -10,7 +10,7 @@
                 <div class="col-md-12 col-lg-8">
                     <div class="title-single-box">
                         <h1 class="title-single">Privacy Policy</h1>
-                        <span class="color-text-a">This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</span>
+                        <span class="color-text-a">Updated: {{ $privacy->updated_at->format('d M Y') }}</span>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4">
@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    {!! $settings['privacy_policy'] !!}
+                    {!! $privacy->value !!}
                 </div>
             </div>
         </div>
