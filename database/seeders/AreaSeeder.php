@@ -18,7 +18,7 @@ class AreaSeeder extends Seeder
         Area::create(['name' => 'Quezon City']);
         Area::create(['name' => 'Pasig']);
         Area::create(['name' => 'Manila']);
-        Area::create(['name' => 'Ortigas']);
+        Area::create(['name' => 'Marikina']);
         Area::create(['name' => 'Taguig']);
         Area::create(['name' => 'Makati']);
     }

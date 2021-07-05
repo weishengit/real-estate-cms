@@ -29,16 +29,16 @@
     <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"/>
+
 
     <!-- Vendor CSS Files -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/ionicons/css/ionicons.min.css') }}" rel="stylesheet" >
-    <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet" >
-    <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet" >
-    />
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('vendor/ionicons/css/ionicons.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet" />
+
 
 
 
@@ -91,7 +91,7 @@
                                         <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
                                     </li>
                                     <li class="item-list-a">
-                                        <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                                        <i class="fa fa-angle-right"></i> <a href="{{ route('privacy') }}">Privacy Policy</a>
                                     </li>
                                 </ul>
                             </div>
@@ -124,27 +124,27 @@
                     <div class="socials-a">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="#">
+                                <a href="{{ $settings['facebook'] }}">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
+                                <a href="{{ $settings['twitter'] }}">
                                     <i class="fa fa-twitter" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
+                                <a href="{{ $settings['instagram'] }}">
                                     <i class="fa fa-instagram" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
+                                <a href="{{ $settings['pinterest'] }}">
                                     <i class="fa fa-pinterest-p" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">
+                                <a href="{{ route('contact') }}">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </a>
                             </li>

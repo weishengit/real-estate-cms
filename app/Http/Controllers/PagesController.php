@@ -50,6 +50,7 @@ class PagesController extends Controller
     public function contact()
     {
         // TODO: Form Submit
+        // TODO: Add Captcha
         $settings = [];
         foreach (Settings::all() as $setting) {
             $settings[$setting->name] = $setting->value;
@@ -60,12 +61,11 @@ class PagesController extends Controller
             'seo_description' => $settings['meta_site_description']
         ];
 
-        return view('pages.contact', compact('settings'));
+        return view('pages.contact', compact('settings', 'seo'));
     }
 
     public function properties(Request $request)
     {
-        // TODO: Add Filters
         $settings = [];
         foreach (Settings::all() as $setting) {
             $settings[$setting->name] = $setting->value;
@@ -132,6 +132,21 @@ class PagesController extends Controller
         ];
 
         return view('pages.property', compact('property', 'images', 'amenities', 'settings', 'seo'));
+    }
+
+    public function privacy()
+    {
+        $settings = [];
+        foreach (Settings::all() as $setting) {
+            $settings[$setting->name] = $setting->value;
+        }
+
+        $seo = [
+            'seo_title' => 'Privacy Policy' .' | '. $settings['meta_site_name'],
+            'seo_description' => $settings['meta_site_description']
+        ];
+
+        return view('pages.privacy', compact('settings', 'seo'));
     }
 
     public function inquire(ContactRequestValidation $request)

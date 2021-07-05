@@ -7,3 +7,7 @@
 - Add Settings
 
 -(DONE) Add Property Filters
+
+- Add Admin Property Search
+
+-(DONE) Add/Edit Privacy Policy

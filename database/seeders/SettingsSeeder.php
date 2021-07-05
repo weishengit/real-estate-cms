@@ -25,5 +25,6 @@ class SettingsSeeder extends Seeder
         Settings::create(['name' => 'twitter', 'value' => 'link to twitter page']);
         Settings::create(['name' => 'pinterest', 'value' => 'link to pinterest page']);
         Settings::create(['name' => 'address', 'value' => 'Your Address']);
+        Settings::create(['name' => 'privacy_policy', 'value' => 'Privacy Policy']);
     }
 }

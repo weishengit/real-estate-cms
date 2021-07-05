@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\PropertyController;
 use App\Models\Property;
 
@@ -27,6 +28,7 @@ Auth::routes();
 // MAIN
 Route::get('/', [PagesController::class, 'index'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
+Route::get('/privacy', [PagesController::class, 'privacy'])->name('privacy');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 Route::post('/contact', [PagesController::class, 'inquire'])->name('inquire');
 Route::get('/properties', [PagesController::class, 'properties'])->name('properties');
@@ -35,6 +37,8 @@ Route::get('/properties/{property}', [PagesController::class, 'property'])->name
 // ADMIN
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/settings/privacy', [PrivacyController::class, 'edit'])->name('settings.privacy.edit');
+    Route::put('/settings/privacy', [PrivacyController::class, 'update'])->name('settings.privacy.update');
     Route::get('/properties/checkslug', [PropertyController::class, 'checkSlug'])->name('properties.checkslug');
     Route::put('/properties/{property}/restore', [PropertyController::class, 'restore'])->name('properties.restore');
     Route::resource('properties', PropertyController::class);

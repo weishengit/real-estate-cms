@@ -4,11 +4,11 @@
     <div class="c-sidebar-brand d-lg-down-none">
         <div class="c-sidebar-brand-full">
             <a class="text-light" href="{{ route('admin.home') }}">
-                <h1><span class="badge badge-secondary">Vista CMS</span></h1>
+                <h1><span class="badge badge-secondary">Real Estate CMS</span></h1>
             </a>
         </div>
 
-        <a class="text-light" href="index.html">
+        <a class="text-light" href="{{ route('admin.home') }}">
             <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CMS Logo">
                 <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-home') }}"></use>
             </svg>
@@ -30,7 +30,7 @@
         <li class="c-sidebar-nav-title">Manage Properties</li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
             <a
-                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-building') }}"></use>
                 </svg>
@@ -74,7 +74,7 @@
         <li class="c-sidebar-nav-divider"></li>
         <li class="c-sidebar-nav-title">Manage Settings</li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
-            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-settings') }}"></use>
                 </svg>
@@ -82,7 +82,7 @@
             </a>
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="login.html" target="_top">
+                    <a class="c-sidebar-nav-link" href="#" target="_top">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-envelope-closed') }}"></use>
                         </svg>
@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="register.html" target="_top">
+                    <a class="c-sidebar-nav-link" href="#" target="_top">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-address-book') }}"></use>
                         </svg>
@@ -98,7 +98,7 @@
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="404.html" target="_top">
+                    <a class="c-sidebar-nav-link" href="#" target="_top">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-people') }}"></use>
                         </svg>
@@ -106,11 +106,11 @@
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="500.html" target="_top">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.settings.privacy.edit') }}" target="_top">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-bug') }}"></use>
                         </svg>
-                        Error 500
+                        Privacy Policy
                     </a>
                 </li>
             </ul>
