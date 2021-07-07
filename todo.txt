@@ -1,13 +1,15 @@
 #TODO:
 
-- Add Contact Logic
+-(WIP)Add Contact Logic
 
 -(DONE) Add Property SEO
 
-- Add Settings
+-(DONE)Add Settings
 
 -(DONE) Add Property Filters
 
 - Add Admin Property Search
 
 -(DONE) Add/Edit Privacy Policy
+
+- Fix About Logic

@@ -18,8 +18,7 @@
 
         <form class="form-horizontal"
             action="{{ route('admin.settings.site.update') }}"
-            method="post"
-            enctype="multipart/form-data">
+            method="post">
             @csrf
             @method('PUT')
             <div class="form-group row">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
@@ -47,6 +48,9 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::put('/settings/social', [SocialController::class, 'update'])->name('settings.social.update');
     Route::get('/settings/site', [SiteController::class, 'edit'])->name('settings.site.edit');
     Route::put('/settings/site', [SiteController::class, 'update'])->name('settings.site.update');
+    Route::get('/settings/about', [AboutController::class, 'edit'])->name('settings.about.edit');
+    Route::put('/settings/about', [AboutController::class, 'update'])->name('settings.about.update');
+
     Route::get('/properties/checkslug', [PropertyController::class, 'checkSlug'])->name('properties.checkslug');
     Route::put('/properties/{property}/restore', [PropertyController::class, 'restore'])->name('properties.restore');
     Route::resource('properties', PropertyController::class);

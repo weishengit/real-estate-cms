@@ -84,7 +84,7 @@
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="{{ route('admin.settings.site.edit') }}" target="_top">
                         <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-envelope-closed') }}"></use>
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-sitemap ') }}"></use>
                         </svg>
                         Site Settings
                     </a>
@@ -111,6 +111,14 @@
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-lock-locked') }}"></use>
                         </svg>
                         Privacy Policy
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.settings.about.edit') }}" target="_top">
+                        <svg class="c-sidebar-nav-icon">
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-newspaper') }}"></use>
+                        </svg>
+                        About Page Settings
                     </a>
                 </li>
             </ul>

@@ -19,8 +19,8 @@ class PrivacyController extends Controller
         $privacy->value = $request->input('description');
 
         if ($privacy->save()) {
-            return redirect()->route('admin.settings.privacy.edit')->with('success', 'Privacy Policy Updated.');
+            return redirect()->route('admin.settings.privacy.edit')->with('message', 'Privacy Policy Updated.');
         }
-        return redirect()->route('admin.settings.privacy,edit')->with('success', 'An error occurred, no changes were made.');
+        return redirect()->route('admin.settings.privacy,edit')->with('message', 'An error occurred, no changes were made.');
     }
 }

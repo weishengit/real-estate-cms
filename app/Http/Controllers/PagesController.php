@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ContactRequestValidation;
-use App\Models\Amenity;
 use App\Models\Area;
+use App\Models\About;
+use App\Models\Amenity;
 use App\Models\Gallery;
 use App\Models\Message;
 use App\Models\Property;
 use App\Models\Settings;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequestValidation;
 
 class PagesController extends Controller
 {
@@ -33,7 +34,11 @@ class PagesController extends Controller
 
     public function about()
     {
-        // TODO: Add About Model
+        $abouts = [];
+        foreach (About::all() as $about) {
+            $abouts[$about->name] = $about->value;
+        }
+
         $settings = [];
         foreach (Settings::all() as $setting) {
             $settings[$setting->name] = $setting->value;
@@ -44,7 +49,7 @@ class PagesController extends Controller
             'seo_description' => $settings['meta_site_description']
         ];
 
-        return view('pages.about', compact('settings', 'seo'));
+        return view('pages.about', compact('settings', 'seo', 'abouts'));
     }
 
     public function contact()

@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
     <meta name="robots" content="noindex">
 
-    <title>Vista Land Residences - House and Lot | Condominium</title>
-    <meta name="author" content="Vista Land Residences">
-    <meta name="description" content="The developer of Brittany, Crown Asia, Camella, Lessandra, Bria, Lumina and Vista Residences. Contact Now: 0923.875.7468, 0917.621.7831, vistalandresidences.com@gmail.com. Your real estates and condo in Manila largest builder in the Philippines." />
-    <meta name="keywords" content="vista land residences, real estate philippines, condo in manila, condominium philippines, bahay ni juan, bria, lumina, camella homes" />
+    <title>Real Estate CMS</title>
+    <meta name="author" content="Real Estate CMS">
+    <meta name="description" content="Real Estate CMS" />
+    <meta name="keywords" content="Real Estate CMS" />
     <link rel="canonical" href="{{ url()->current() }}/" />
 </head>
 

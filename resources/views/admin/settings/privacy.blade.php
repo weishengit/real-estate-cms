@@ -3,11 +3,6 @@
 @section('content')
 <div class="card">
     <div class="card-header"><strong>Edit Privacy Policy</strong></div>
-    @if (session()->has('success'))
-        <div class="alert alert-success" role="alert">
-            <p>{{ session()->get('success') }}</p>
-        </div>
-    @endif
     @if ($errors->any())
         <div class="alert alert-danger" role="alert">
         Check The Following
