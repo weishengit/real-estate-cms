@@ -82,15 +82,15 @@
             </a>
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="#" target="_top">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.settings.site.edit') }}" target="_top">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-envelope-closed') }}"></use>
                         </svg>
-                        Mail Settings
+                        Site Settings
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="#" target="_top">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.settings.contact.edit') }}" target="_top">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-address-book') }}"></use>
                         </svg>
@@ -98,7 +98,7 @@
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="#" target="_top">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.settings.social.edit') }}" target="_top">
                         <svg class="c-sidebar-nav-icon">
                             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-people') }}"></use>
                         </svg>

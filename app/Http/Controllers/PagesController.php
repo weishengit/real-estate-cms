@@ -22,7 +22,7 @@ class PagesController extends Controller
         }
 
         $seo = [
-            'seo_title' => 'Real Estate' .' | '. $settings['meta_site_name'],
+            'seo_title' => $settings['meta_site_name'] .' | '. $settings['meta_site_name'],
             'seo_description' => $settings['meta_site_description']
         ];
 
