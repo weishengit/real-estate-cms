@@ -10,6 +10,11 @@ class Area extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'name',
+        'deleted_at',
+    ];
+
     public function properties()
     {
         return $this->hasMany(Property::class);

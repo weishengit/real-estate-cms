@@ -158,7 +158,7 @@
                         {{-- Location --}}
                         <li class="nav-item">
                             <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab"
-                                aria-controls="pills-map" aria-selected="false">Location</a>
+                                aria-controls="pills-map" aria-selected="false">Show Location</a>
                         </li>
                     </ul>
                     {{-- Content --}}

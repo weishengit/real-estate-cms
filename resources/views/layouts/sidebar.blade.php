@@ -32,6 +32,32 @@
             <a
                 class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="">
                 <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-location-pin') }}"></use>
+                </svg>
+                View Areas
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.areas.index') }}">
+                        <svg class="c-sidebar-nav-icon">
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-map') }}"></use>
+                        </svg>
+                        <span class="c-sidebar-nav-icon"></span> All Areas
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.areas.create') }}">
+                        <svg class="c-sidebar-nav-icon">
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-plus') }}"></use>
+                        </svg> Add New Area
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <a
+                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="">
+                <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-building') }}"></use>
                 </svg>
                 View Properties

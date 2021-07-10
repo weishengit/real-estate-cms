@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AmenityController;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/properties/checkslug', [PropertyController::class, 'checkSlug'])->name('properties.checkslug');
     Route::put('/properties/{property}/restore', [PropertyController::class, 'restore'])->name('properties.restore');
+    Route::put('/areas/{area}/restore', [AreaController::class, 'restore'])->name('areas.restore');
+    Route::resource('areas', AreaController::class);
     Route::resource('properties', PropertyController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('amenities', AmenityController::class);
