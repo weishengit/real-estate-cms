@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Settings;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+
+        if(config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
 
         view()->composer('layouts.app', function($view) {
             $meta_site_name = Settings::where('name', 'meta_site_name')->first();
