@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'superadmin',
             'email' => 'superadmin@example.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('super2021')
+            'password' => bcrypt('superadmin@example.com')
         ]);
     }
 }
