@@ -30,6 +30,7 @@ class Property extends Model
 
     protected $attributes = [
         'listed' => 1,
+        'map' => 'not set',
     ];
 
     public function galleries()

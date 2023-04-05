@@ -60,6 +60,31 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="bedrooms">Bedrooms</label>
+                <div class="col-md-9">
+                    <input value="{{ old('bedrooms') }}" class="form-control" id="bedrooms" type="number" name="bedrooms" min="1" placeholder="Number Of Bedrooms" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="bathrooms">Bathrooms</label>
+                <div class="col-md-9">
+                    <input value="{{ old('bathrooms') }}" class="form-control" id="bathrooms" type="number" name="bathrooms" min="1" placeholder="Number Of Bathrooms" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Parking</label>
+                <div class="col-md-9 col-form-label">
+                    <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" id="parking-yes" type="radio" value="Yes" name="parking">
+                        <label class="form-check-label" for="parking-yes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" id="parking-no" type="radio" value="No" name="parking">
+                        <label class="form-check-label" for="parking-no">No</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="description">Description</label>
                 <div class="col-md-9">
                     <textarea class="form-control" id="description" name="description" rows="9"

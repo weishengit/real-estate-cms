@@ -56,7 +56,38 @@
             <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="introduction">Introduction</label>
                 <div class="col-md-9">
-                    <input value="{{ $property->introduction }}" class="form-control" id="introduction" type="text" name="introduction" placeholder="Property Introduction Text">
+                    <input value="{{ $property->introduction }}" class="form-control" id="introduction" type="text" name="introduction" placeholder="ex: ">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="map">Google Map Link</label>
+                <div class="col-md-9">
+                    <input value="{{ $property->map }}" class="form-control" id="map" type="text" name="map" placeholder='ex: <iframe src="https://www.google.com/maps/embed..."'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="bedrooms">Bedrooms</label>
+                <div class="col-md-9">
+                    <input value="{{ $property->beds }}" class="form-control" id="bedrooms" type="number" name="bedrooms" min="1" placeholder="Number Of Bedrooms" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="bathrooms">Bathrooms</label>
+                <div class="col-md-9">
+                    <input value="{{ $property->baths }}" class="form-control" id="bathrooms" type="number" name="bathrooms" min="1" placeholder="Number Of Bathrooms" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Parking</label>
+                <div class="col-md-9 col-form-label">
+                    <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" id="parking-yes" type="radio" value="Yes" name="parking" @if ($property->parking == 'Yes') checked @endif>
+                        <label class="form-check-label" for="parking-yes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" id="parking-no" type="radio" value="No" name="parking" @if ($property->parking == 'No') checked @endif>
+                        <label class="form-check-label" for="parking-no">No</label>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
