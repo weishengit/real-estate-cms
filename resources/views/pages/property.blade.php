@@ -95,15 +95,15 @@
                                         </li>
                                         <li class="d-flex justify-content-between">
                                             <strong>Beds:</strong>
-                                            <span>4</span>
+                                            <span>{{ $property->beds }}</span>
                                         </li>
                                         <li class="d-flex justify-content-between">
                                             <strong>Baths:</strong>
-                                            <span>2</span>
+                                            <span>{{ $property->baths }}</span>
                                         </li>
                                         <li class="d-flex justify-content-between">
                                             <strong>Parking:</strong>
-                                            <span>1</span>
+                                            <span>{{ $property->parking }}</span>
                                         </li>
                                     </ul>
                                 </div>
