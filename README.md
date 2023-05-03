@@ -12,6 +12,9 @@ Real Estate CMS is a real estate listing platform. My goals for this project are
 
 Real Estate CMS it is a personal project, it's not my first laravel project, but it's my first solo project.
 
+- View the demo [here](http://weihost.australiaeast.cloudapp.azure.com:5000/).
+- contact me if you want to try using a demo account.
+
 ## Pages
 
 ### Home
